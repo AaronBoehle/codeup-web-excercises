@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With Us</title>
+    <link rel="stylesheet" href="forms.css">
+</head>
+<body>
+
+<!-- form method notes
+
+method is a type of HTTP request
+GET method == "download" request
+POST method == "upload" request
+
+GET request is used for anchor links
+GET request is used when loading a bookmark
+GET request are common for search forms.
+
+POST method is used for logins or anything w/ a passcode
+POST method is used on any forms that create a record
+POST method is used on any file or image upload
+
+-->
+<br>
+    <form method="POST" action="https://www.elformo.com/forms/bbca13ab-55f6-45a2-8eb6-b32644235154">
+        <div class="registration">
+            <p>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="text" placeholder="Enter Username Here">
+            </p>
+            <p>
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" placeholder="Enter Password Here">
+            </p>
+        </div>
+<br>
+        <div class="bio">
+            <p>
+                <label for="bio"><em>Biography</em></></label>
+            </p>
+                <textarea id="bio" name="bio" placeholder="Tell us about yourself!"></textarea>
+        </div>
+<br>
+        <div class="question_1">
+            <p>
+                <strong><em>How did you hear about us?</em></strong>
+            </p>
+                <input id="answer_1" type="radio" name="answer_1" value="billboard">
+                    <label for="answer_1">
+                        Billboard
+                    </label>
+                <input id="answer_2" type="radio" name="answer_2" value="radio_advertisement">
+                    <label for="answer_2">
+                        Radio
+                    </label>
+                <input id="answer_3" type="radio" name="answer_3" value="internet_advertisement">
+                    <label for="answer_3">
+                        Internet Advertisement
+                    </label>
+                <input id="answer_4" type="radio" name="answer_4" value="Other">
+                    <label for="answer_4">
+                        Other
+                    </label>
+        </div>
+<br>
+        <div class="question_2">
+            <label for="web_browser">
+                <p><strong><em>What web browser are you using?</em></strong></p>
+            </label>
+            <select id="web_browser" name="web_browser">
+                <option value="chrome">Google Chrome</option>
+                <option value="firefox">Mozilla Firefox</option>
+                <option value="safari">Safari</option>
+                <option value="edge">Microsoft Edge</option>
+            </select>
+        </div>
+<br>
+        <input type="submit">
+<br>
+    </form>
+</body>
+</html>
+
+<!--
+
+Make sure all of your form elements have labels.
+Ensure that all of your form values are being submitted to the Request Inspector.
+Experiment with different attribute values:
+What do you notice when changing the form's request method from GET to POST?
+What happens if you leave off the name attribute on an input?
+What happens if you leave off the id attribute on a form input?
+
+Bonus
+
+To configure your forms to send you an email, sign up for the free plan on El Formo. El Formo will provide you a URL for your form's action attribute.
+When you use this action, the El Formo service will email you each form submission.
+This is a great way to get forms working online super quick!
+
+-->

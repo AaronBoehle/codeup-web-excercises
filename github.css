@@ -5,6 +5,7 @@ body {
     font-size: 14px;
     line-height: 1.5;
 }
+
 .top_navigation, li {
     display: inline-block;
 }
@@ -43,8 +44,4 @@ body {
 
 .member_logo {
     float: left;
-}
-
-.column_1 {
-    background-color: #F6F7FA;
 }
