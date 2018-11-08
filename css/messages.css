@@ -1,0 +1,75 @@
+:root {
+    --msg-padding: .5em;
+    --msg-margin-left: auto;
+    --msg-margin-right: auto;
+    --msg-margin-top: .5em;
+    --msg-margin-bottom: .5em;
+    --msg-width: 90%;
+    --msg-border-radius: 5px;
+    --msg-border-color: #DCDDDD;
+    --txt-indent: .2em;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+.message-info {
+    background-color: #CEDFFE;
+    color: #4A4998;
+    padding: var(--msg-padding);
+    margin-left: var(--msg-margin-left);
+    margin-right: var(--msg-margin-right);
+    margin-top: var(--msg-margin-top);
+    margin-bottom: var(--msg-margin-bottom);
+    width: var(--msg-width);
+    border-radius: var(--msg-border-radius);
+    border-color: var(--msg-border-color);
+    text-indent: var(--txt-indent);
+}
+
+.message-success {
+    background-color: #D0F2DB;
+    color: #4D8C66;
+    padding: var(--msg-padding);
+    margin-left: var(--msg-margin-left);
+    margin-right: var(--msg-margin-right);
+    margin-top: var(--msg-margin-top);
+    margin-bottom: var(--msg-margin-bottom);
+    width: var(--msg-width);
+    border-radius: var(--msg-border-radius);
+    border-color: var(--msg-border-color);
+    text-indent: var(--txt-indent);
+}
+
+.message-warning {
+    background-color: #F8F6C8;
+    color: #B0A25A;
+    padding: var(--msg-padding);
+    margin-left: var(--msg-margin-left);
+    margin-right: var(--msg-margin-right);
+    margin-top: var(--msg-margin-top);
+    margin-bottom: var(--msg-margin-bottom);
+    width: var(--msg-width);
+    border-radius: var(--msg-border-radius);
+    border-color: var(--msg-border-color);
+    text-indent: var(--txt-indent);
+}
+
+.message-error {
+    background-color: #E9C5C9;
+    color: #92364B;
+    padding: var(--msg-padding);
+    margin-left: var(--msg-margin-left);
+    margin-right: var(--msg-margin-right);
+    margin-top: var(--msg-margin-top);
+    margin-bottom: var(--msg-margin-bottom);
+    width: var(--msg-width);
+    border-radius: var(--msg-border-radius);
+    border-color: var(--msg-border-color);
+    text-indent: var(--txt-indent);
+}

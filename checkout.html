@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+</head>
+<body>
+    <section id="checkout_form">
+        <h1>Checkout</h1>
+            <form action="https://request-inspector.glitch.me" method="POST">
+                <label for="cc-name">
+                    <p>
+                        Name (as it appears on your card)
+                    </p>
+                </label>
+                    <input id="cc-name" type="text" name="cc-name" required>
+                <label for="cc-number">
+                    <p>
+                        Credit Card Number (no dashes or spaces)
+                    </p>
+                </label>
+                    <input id="cc-number" type="number" name="cc-number" minlength="16" maxlength="16" required>
+               <label for="expiration-date">
+                    <p>
+                        Expiration Date (month and year)
+                    </p>
+               </label>
+                <p>
+                    <input id="expiration-date" type="number" name="expiration-month" placeholder="XX" maxlength="2" >
+                <strong>
+                    /
+                </strong>
+                    <input id="expiration-date" type="number" name="expiration-year" maxlength="2" placeholder="XX">
+                    <input id="expiration-date" type="number" name="security-code" maxlength="3" placeholder="CVV Code">
+                </p>
+                <label for="billing-info">
+                        Billing Address
+                        <br>
+                        <input id="billing-info" type="text" name="first-name" placeholder="First Name">
+                        <input id="billing-info" type="text" name="last-name" placeholder="Last Name">
+                        <br>
+                        <input id="billing-info" type="text" name="address-line-1" placeholder="Address Line 1">
+                        <input id="billing-info" type="text" name="address-line-2" placeholder="Address Line 2">
+                        <br>
+                        <input id="billing-info" type="text" name="city" placeholder="City">
+                        <input id="billing-info" type="text" name="state" placeholder="State">
+                        <br>
+                        <input id="billing-info" type="number" name="zipcode" placeholder="Zipcode" maxlength="5">
+                    </p>
+                </label>
+                <input id="checkbox" type="checkbox" name="checkbox" value="true"  checked>
+                    <label for="checkbox">
+                        Keep this credit card on file for future transactions
+                    </label>
+                <p>
+                    <input type="submit" value="Buy Now!">
+                </p>
+            </form>
+    </section>
+</body>
+</html>
+
+<!--
+
+Make all fields required except for the checkbox
+
+Add an input for credit card number, expiration month/year, and security code
+Add inputs for the billing address
+Add a checkbox that says “Keep this credit card on file for future transactions”
+The submit button’s text should say “Buy Now!”
+
+-->

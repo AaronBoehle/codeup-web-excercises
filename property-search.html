@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Search</title>
+</head>
+<body>
+    <section id="property-search">
+        <h1>Property Search</h1>
+            <form action="https://request-inspector.glitch.me" method="GET">
+                <p>
+                    Property Type:
+                        <input id="house" type="checkbox" name="property-type" value="house">
+                            <label for="house">
+                                House
+                            </label>
+                        <input id="apartment" type="checkbox" name="property-type" value="apartment">
+                            <label for="apartment">
+                                Apartment
+                            </label>
+                        <input id="other" type="checkbox" name="property-type" value="other">
+                            <label for="other">
+                                Other
+                            </label>
+                </p>
+                <p>
+                    <label for="square-feet">
+                        Square Feet:
+                    </label>
+                        <input id="square-feet" type="number" name="square-feet">
+                </p>
+                <p>
+                    Price:
+                    <label for="minimum">
+                        Min.
+                    </label>
+                        <input id="minimum" type="number" name="minimum" placeholder="$00.00">
+                    <label for="minimum">
+                        Max.
+                    </label>
+                        <input id="maximum" type="number" name="maximum" placeholder="$00.00">
+                </p>
+                <p>
+                    <label for="zip-code">
+                        Zip Code:
+                    </label>
+                        <input id="zip-code" type="number" name="zip-code" minlength="5" maxlength="5" placeholder="Enter 5-Digit Zipcode">
+                <p>
+                    <label for="bedrooms">
+                        Number of Bed(s):
+                    </label>
+                        <select id="bedrooms" name="bedrooms">
+                            <option value="-">-</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    <label for="bathrooms">
+                        Number of Bath(s):
+                    </label>
+                        <select id="bathrooms" name="bathrooms">
+                            <option value="-">-</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                <p>
+                    Pets:
+                        <input id="yes" type="radio" name="pets" value="yes">
+                            <label for="yes">
+                                Yes
+                            </label>
+                        <input id="no" type="radio" name="pets" value="no">
+                             <label for="no">
+                                No
+                            </label>
+                </p>
+                <p>
+                    <input type="submit" value="Search Now">
+                </p>
+            </form>
+        </section>
+
+</body>
+</html>
