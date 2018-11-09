@@ -9,6 +9,7 @@ body {
     margin: 1.2em;
     font-size: .7em;
 }
+
 .alert-info a {
     text-decoration: none;
     color: #546969;
@@ -22,7 +23,6 @@ body {
 .sub-section {
     font-style: italic;
 }
-
 
 @media only screen and (min-width:240px) and (max-width:889px) {
 
@@ -74,7 +74,7 @@ body {
         margin-top: .5em;
     }
     .sub-section {
-        margin-bottom: 7em;
+        margin-bottom: 10em;
     }
 
     .sub-section > h2 {
@@ -86,15 +86,29 @@ body {
         font-size: 1.2em;
         margin-top: .5em;
     }
+    footer>p {
+        font-size: 1em;
+        float: left;
+        position: relative;
+        display: inline-block;
+        bottom: 0em;
+        left: 0em;
+        margin: 1em;
+    }
+    #social-media-links {
+        float: right;
+        position: relative;
+        bottom: 4em;
+        padding: .5em;
+        right: 0em;
+        margin: .5em;
+    }
 }
 
 
 
-@media screen and (min-width:890px) and (max-width:1200px) {
-    body>p {
-        clear: both;
-        text-align: bottom;
-    }
+@media screen and (min-width:890px) and (max-width:2400px) {
+
     h1 {
         float: left;
         margin-top: .3em;
@@ -160,7 +174,21 @@ body {
         font-size: 1.2em;
         margin-top: .5em;
     }
+    footer>p {
+        font-size: 1em;
+        float: left;
+        position: absolute;
+        display: inline-block;
+        bottom: 0em;
+        left: 0em;
+        margin: 1em;
+    }
     #social-media-links {
         float: right;
+        position: absolute;
+        bottom: 0em;
+        padding: .5em;
+        right: 0em;
+        margin: 1em;
     }
 }
