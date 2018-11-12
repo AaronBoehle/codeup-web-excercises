@@ -1,90 +1,75 @@
 :root {
     --font-family: 'Open Sans', sans-serif;
-
 }
-
 body {
     font-family: var(--font-family);
-    background-color: #FFFFFF;
-    margin: 1.2em;
+    background-color: black;
     font-size: .7em;
 }
-
 .alert-info a {
     text-decoration: none;
     color: #546969;
 }
 .nav-links {
     list-style-type: none;
-    padding: 0px;
-    margin: 0em;
+    margin: 0;
+    padding: 0;
 }
-
 .sub-section {
     font-style: italic;
 }
+nav {
+    margin-top: 2em;
+}
 
-@media only screen and (min-width:240px) and (max-width:889px) {
+@media only screen and (min-width:0px) and (max-width:768px) {
 
     .alert-info {
-        display: block;
         text-align: center;
         font-size: 1.2em;
         background: #CEFFFF;
         padding-top: 1em;
         padding-bottom: 1em;
         border: 2px solid #D8D8D8;
+        margin-left: 1em;
+        margin-right: 1em;
+        margin-bottom: 0;
     }
 
     h1 {
         text-align: center;
         font-size: 4em;
-        margin-top: 0em;
-        margin-bottom: .6em;
+        margin: 0;
     }
     .nav-links li {
         text-align: center;
         font-size: 1.3em;
         background: #CCCCCC;
         padding-top: 1em;
-        padding-bottom: 1.1em;
-        margin-top: .8em;
-        margin-bottom: .8em;
+        padding-bottom: 1em;
+        margin-top: 1em;
+        margin-bottom: 1em;
     }
-
     .header-img {
-        width: 339px;
-        height: 224px;
-        margin: auto;
+        max-width: 339px;
+        max-height: auto;
+        margin: .5em 0;
     }
     img {
-        max-width: 339px;
-        max-height: 224px;
-        padding: auto;
-    }
-    .main {
-        margin-bottom: 4em;
+        width: 100%;
+        height: auto;
     }
     .main>h2 {
         font-size: 2em;
-        margin-bottom: 0em;
     }
     .main>p {
         font-size: 1.2em;
-        margin-top: .5em;
     }
-    .sub-section {
-        margin-bottom: 10em;
-    }
-
     .sub-section > h2 {
         font-size: 1.6em;
-        margin-bottom: 0em;
     }
-
     .sub-section >p{
         font-size: 1.2em;
-        margin-top: .5em;
     }
     footer>p {
         font-size: 1em;
@@ -93,102 +78,72 @@ body {
         display: inline-block;
         bottom: 0em;
         left: 0em;
-        margin: 1em;
     }
     #social-media-links {
-        float: right;
-        position: relative;
-        bottom: 4em;
+        display: inline-block;
+        margin: auto;
+        padding: auto;
+    }
+    #social-media-links img {
         padding: .5em;
-        right: 0em;
-        margin: .5em;
+        width: 10%;
+        float: left;
     }
 }
 
 
 
-@media screen and (min-width:890px) and (max-width:2400px) {
+@media screen and (min-width:769px) and (max-width:2400px) {
 
     h1 {
-        float: left;
-        margin-top: .3em;
-        margin-bottom: 1em;
-        margin-left: .1em;
-        margin-right: 0em;
         font-size: 4em;
-        max-width: calc(50 - .1em)%;
+        margin: 0;
     }
-    ul {
-        float: right;
-        max-width: calc(50% - .1em);
-    }
+
     img {
-        max-width: 890px;
-        max-height: 385px;
-        padding: auto;
+        max-width: 100%;
+        max-height: auto;
     }
     h2 {
-        margin-bottom: 2em;
         font-size: 1.8em;
     }
     .hidden-on-desktop {
         display: none;
     }
     .nav-links {
-        margin-top: .3em;
-        margin-left: 0em;
-        margin-right: .1em;
         font-size: 1.4em;
         text-align: right;
-        position: relative;
-        top: 2em;
+        padding: 0 auto;
+        margin: 0 auto;
     }
     .nav-links li {
         display: inline-block;
-        padding: .6em;
+        padding: .5em;
     }
     .header-img {
-        clear: both;
-        width: 890px;
-        height: 385px;
-        padding: auto;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 2em;
-    }
-    .main {
-        margin-left: .5em;
-        margin-right: 1em;
-        float: left;
-        width: calc(65% - 1.5em);
+        max-width: 890px;
+        height: auto;
+        margin: .5em 0;
     }
     .main>p {
         font-size: 1.2em;
     }
-    .sub-section {
-        margin-right: .1em;
-        float: right;
-        width: calc(35% - .1em);
-    }
     .sub-section >p{
         font-size: 1.2em;
-        margin-top: .5em;
     }
     footer>p {
         font-size: 1em;
-        float: left;
-        position: absolute;
         display: inline-block;
-        bottom: 0em;
-        left: 0em;
-        margin: 1em;
+        float: left;
     }
     #social-media-links {
+        display: inline-block;
         float: right;
-        position: absolute;
-        bottom: 0em;
+        width: 100%;
+    }
+    #social-media-links img {
         padding: .5em;
-        right: 0em;
-        margin: 1em;
+        width: 10%;
+        float: right;
     }
 }

@@ -4,48 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Media Queries</title>
+    <link rel="stylesheet" href="css/grid-layout.css">
     <link rel="stylesheet" href="css/media-queries.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
-    <div class="alert-info hidden-on-desktop">
-        <a href="#main">Skip to main content</a>
-    </div>
-    <h1>Company</h1>
-    <nav>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Work</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="header-img">
-        <img src="https://placekitten.com/900/400" alt="kittens">
-    </div>
-    <section id="main" class="main">
-        <h2>Main Section</h2>
-        <p>Amet lorem accusantium maxime quis iusto. Sit aliquid quidem at animi commodi, iusto harum, non. Accusantium sequi consectetur deleniti soluta tempora. Maxime maiores blanditiis veritatis vitae amet maiores sapiente in?</p>
-    </section>
-    <section class="sub-section">
-        <h2>Sub-section</h2>
-        <p>Amet optio quidem voluptatum neque esse at saepe, reiciendis quaerat architecto unde minima aspernatur harum cum totam non amet soluta. Ea quae odio harum magni ab vitae tenetur. Itaque numquam!</p>
-    </section>
-    <footer>
-        <p>(c) 2017 All rights reserved</p>
-        <div id="social-media-links">
-        <a href="https://www.facebook.com/" target="blank">
-            <img src="images/iconmonstr-facebook-4-240.png" alt="Facebook" width="60px">
-        </a>
-        <a href="https://www.linkedin.com/" target="blank">
-            <img src="images/iconmonstr-linkedin-3-240.png" alt="LinkedIn" width="60px">
-        </a>
-        <a href="https://twitter.com/?lang=en" target="blank">
-            <img src="images/iconmonstr-twitter-4-240.png" alt="Twitter" width="60px">
-        </a>
-            <!-- Add html and css to the div with the id of social-media-links to create icons that link to various social media platforms.
-            -->
+    <div class="container">
+        <div class="row">
+            <div class="column">
+                <div class="alert-info hidden-on-desktop">
+                <a href="#main">Skip to main content</a>
+                </div>
+            </div>
         </div>
-    </footer>
+        <div class="row">
+            <div class="column one-half">
+                <h1>Company</h1>
+            </div>
+            <div class="column one-half">
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Work</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="header-img">
+                    <img src="https://placekitten.com/900/400" alt="kittens">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column one-half">
+                <section id="main" class="main">
+                    <h2>Main Section</h2>
+                    <p>Amet lorem accusantium maxime quis iusto. Sit aliquid quidem at animi commodi, iusto harum, non. Accusantium sequi consectetur deleniti soluta tempora. Maxime maiores blanditiis veritatis vitae amet maiores sapiente in?</p>
+                </section>
+            </div>
+            <div class="column one-half">
+                <section class="sub-section">
+                    <h2>Sub-section</h2>
+                    <p>Amet optio quidem voluptatum neque esse at saepe, reiciendis quaerat architecto unde minima aspernatur harum cum totam non amet soluta. Ea quae odio harum magni ab vitae tenetur. Itaque numquam!</p>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <footer>
+                    <div class="column one-half">
+                        <p>(c) 2017 All rights reserved</p>
+                    </div>
+                    <div class="column one-half">
+                        <div id="social-media-links">
+                            <a href="https://www.facebook.com/" target="blank">
+                                <img src="images/iconmonstr-facebook-4-240.png" alt="Facebook">
+                            </a>
+                            <a href="https://www.linkedin.com/" target="blank">
+                                <img src="images/iconmonstr-linkedin-3-240.png" alt="LinkedIn">
+                            </a>
+                            <a href="https://twitter.com/?lang=en" target="blank">
+                                <img src="images/iconmonstr-twitter-4-240.png" alt="Twitter">
+                            </a>
+                        </div>
+                    </div>
+            </footer>
+        </div>
+    </div>
 </body>
 </html>
