@@ -10,22 +10,47 @@ body {
     color: #5D5D5D;
     background-color: #FFFFFF;
     background-image: none;
-    border-color: #E1E1E1;
+    border-color: #0056b3;
 }
 .jumbotron {
     width: 100%;
-    margin: auto;
+    margin: 2em 0;
     background-image: url("../images/pizza.png");
     background-size: cover;
     background-color: none;
     text-align: center;
+
 }
 .display-4{
     color: rgb(33,37,40,.8);
     background-color: rgb(255, 255, 255, .7);
 }
-
-
+.badge-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    margin-left: 0;
+    margin-right: .5em
+}
+.bg-primary {
+    background-color: rgb(22,127,251,1);
+}
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin: 1em 0;
+}
 @media (max-width: 767.98px) {
     .jumbotron {
         display: none;
