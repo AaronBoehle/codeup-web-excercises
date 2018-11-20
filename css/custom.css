@@ -1,5 +1,9 @@
+* {
+    box-sizing: border-box;
+}
 body {
     margin: auto;
+}
 .container {
     padding: 0;
     margin: 0;
