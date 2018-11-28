@@ -52,13 +52,12 @@ var random = Math.floor((Math.random() * 3) + 1);
  * different result everytime you refresh the page if you are using the random
  * number)
  */
-function isTwo(input) {
-
-
-
+function isTwo(number) {
+    return number === 2;
 }
 
-isTwo()
+isTwo(random);
+
 /**
  * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
@@ -70,9 +69,18 @@ isTwo()
  * > calculateTip(0.25, 25.50) // returns 6.37
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
-function calculateTip(bill) {
+    var billTotal = prompt("What was the total price of your meal?");
+    var tipPercentage = prompt('Enter a gratuity percentage for your server (ie. 10 = 10%, 15 = 15%, 20 = 20%, etc.)');
+    billTotal = parseFloat(billTotal);
+    tipPercentage = parseFloat(tipPercentage);
+    tipPercentage = (tipPercentage / 100);
+    var tipTotal = (tipPercentage * billTotal);
 
+function calculateTip(tipPercentage, billTotal) {
+    return alert("Your total bill (with gratuity included) will be $" + (tipTotal + billTotal));
 }
+calculateTip(tipPercentage, billTotal);
+
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
