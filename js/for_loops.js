@@ -56,9 +56,16 @@ for (var randomNumberCount = 0; randomNumberCount<10; randomNumberCount++) {
 // 88888888
 // 999999999
 
-function numberTree (x,y) {
-    
+function numberTree() {
+    for (var i=1;i<10;i++) {
+        var integerString = '';
+        for (var j=0;j<i;j++) {
+            integerString += i;
+        }
+        console.log(integerString);
+    }
 }
+numberTree();
 
 
 // Create a for loop that uses console.log to create the output shown below.
@@ -82,3 +89,10 @@ function numberTree (x,y) {
 // 15
 // 10
 // 5
+
+function countBackwardsByFives() {
+    for (var i=100; i>=5; i-5) {
+        console.log(i);
+    }
+}
+countBackwardsByFives();
