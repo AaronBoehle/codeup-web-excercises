@@ -33,7 +33,6 @@
 
         var mainHeader = document.getElementById('main-header');
         console.log(mainHeader);
-        console.log(mainHeader;)
         mainHeader.innerHTML = "JavaScript is Cool";
 
 
@@ -50,9 +49,13 @@
         // TODO: Set text color on every other list item to grey
 
         var listItems = document.getElementsByTagName('li');
-        for (var i=0; i<=5; i++) {
+        for (var i=0; i<listItems.length; i++) {
+
             console.log(listItems[i]);
+            listItems[i++].style.color = '#808080';
         }
+        var dbID = listItems.getAttribute('data-dbid');
+        console.log(dbID);
 
         // TODO: Set text color of li with dbid = 1 to blue
 
