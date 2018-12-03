@@ -3,7 +3,8 @@
 
     // create a circle object
     var circle = {
-        radius: 5,
+         radius: 3,
+
         getArea: function () {
             var totalArea = Math.PI * (Math.pow(this.radius, 2));
             // TODO: complete this method
@@ -28,9 +29,9 @@
     circle.getArea();
 
     // log info about the circle
-    console.log("This raw circle has a radius of "+ circle.radius+" units.");
+    console.log("This raw circle has a radius of "+ circle.radius[0]+" units.");
     circle.logInfo(false);
-    console.log("The circle has an exact radius of "+circle.getArea()+".");
+    console.log("The circle has an exact radius of "+circle.getArea(circle.radius[0])+".");
     circle.logInfo(true);
     console.log("Rounded to the nearest whole integer, this circles radius is " +circle.logInfo());
 
@@ -38,10 +39,10 @@
 
     console.log("=======================================================");
     // TODO: Change the radius of the circle to 5.
-
+    circle.radius = 5;
     // log info about the circle
-    console.log("This raw circle has a radius of 5 units.");
-    console.log("The circle has an exact radius of "+circle.getArea()+".");
+    console.log("This raw circle has a radius of "+ circle.radius+" units.");
+    console.log("The circle has an exact radius of "+circle.getArea(circle.radius)+".");
     circle.logInfo(true);
-    console.log("Rounded to the nearest whole integer, this circles radius is " +circle.logInfo());
+    console.log("Rounded to the nearest whole integer, this circles radius is " +circle.logInfo(circle.radius));
 })();
