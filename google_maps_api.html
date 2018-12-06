@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #map-canvas {
+            width: 770px;
+            height: 481px;
+        }
+    </style>
+</head>
+<body>
+<!-- div to hold map -->
+<div id="map-canvas"></div>
+
+<!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkvGYIbyWtGTc6LkTph0UVJVUj7Uo6tAA
+"></script>
+
+<!-- Script to show address on map -->
+<script type="text/javascript">
+    (function() {
+        "use strict";
+
+        var mapOptions = {
+            zoom: 12,
+            center: {
+                lat: 29.4944136,
+                lng: -98.5354033
+            }
+        };
+
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        var address = "2345 Vance Jackson Rd, San Antonio, TX 78213";
+
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({"address": address}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+            } else {
+                alert("Geocoding was not successful - STATUS: " + status);
+            }
+        });
+
+
+        var fattboy = {lat: 29.4944136, lng: -98.5354033};
+
+        var marker = new google.maps.Marker({
+            position: fattboy,
+            map: map,
+            animation: google.maps.Animation.DROP,
+            icon: {
+                url: "images/iconfinder_Food_C207_2427857.png", // url
+                scaledSize: new google.maps.Size(50, 50), // scaled size
+                origin: new google.maps.Point(0,0), // origin
+                anchor: new google.maps.Point(0, 0) // anchor
+            }
+        });
+
+        var infoWindowImage = document.createElement('img');
+        infoWindowImage.setAttribute('src', 'images/burger.jpeg');
+        var infowindow = new google.maps.InfoWindow({
+            content:    "<h2><a href='https://www.fattboyburgers.com'>Fattboy Burgers and Dogs</a></h2><img src='images/burger.jpeg' style='width: 300px' height='auto' ><br><h3>Bustling spot for classic American grub.</h3><p>This local gem is a must-try for huge portions of juicy goodness at a reasonable price! The topping options are both classic and exotic, and there is no limitation on the amount of toppings you may add to your entree.</p>A steal-of-a-deal meal."
+        });
+
+// Open the window using our map and marker
+        marker.addListener('click', function() {
+            map.setZoom(19);
+            map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+            map.setCenter(marker.getPosition());
+            infowindow.open(map, marker);
+        });
+
+        //
+
+
+    })();
+
+</script>
+</body>
+</html>
