@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aaron Boehle - JQuery Exercises</title>
+</head>
+<body>
+    <script src="js/jquery-2.2.4.js"></script>
+    <div class = "container">
+        <nav id="nav_container codeup" class = "nav_bar">
+            <h1 id="nav_header" class = "nav_bar codeup">
+                Intro to JQuery
+            </h1>
+            <p id="nav_paragraph" class ="nav_bar codeup">
+                Below are link examples for the "jquery_excercise.html" assignment.
+            </p>
+            <ul id="nav_unordered_list" class="nav_bar codeup">
+                <h3 id="nav_unordered_list_header" class="nav-bar">
+                    Select from the following:
+                </h3>
+                <li id="nav-list-item_home" class="nav-bar">
+                    Home
+                </li>
+                <li id="nav_list_item_about" class="nav_bar">
+                    About
+                </li>
+                <li id="nav_list_item_portfolio" class="nav_bar">
+                    Portfolio
+                </li>
+                <li id="nav_list_item_contact" class="nav_bar">
+                    Contact
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+
+
+<script>
+    "use strict";
+$(document).ready(function() {
+    alert( 'The DOM has finished loading!' );
+});
+/*
+var nav_header = $('#nav_header').html();
+ alert(nav_header);
+
+var nav_home = $('#nav-list-item_home').html();
+alert(nav_home);
+
+var codeup_border = $('.codeup').css('border', '1px solid rgb(161,32,39)');
+
+var li_font_size = $('li').css('font-size', '20px');
+var h1_element = $('h1').html();
+alert(h1_element);
+
+var nav_highlight_element = $('h1, p, li').css('background-color', 'yellow')
+*/
+
+
+
+/*
+Remove your custom jQuery code from previous exercises.
+Add jQuery code that will change the background color of a h1 element when clicked.
+Make all paragraphs have a font size of 18px when they are double clicked.
+Set all li text color to red when the mouse is hovering, reset to black when it is not.
+*/
+
+$('h1').click(function () {
+    $(this).css('background-color', 'blue');
+
+});
+$('p').dblclick(function () {
+    $(this).css('font-size','18px');
+
+});
+$('li').hover(function () {
+    $(this).css('color', 'red');
+    },    
+    function () {
+    $(this).css('color', 'black');
+    });
+
+
+</script>
+</body>
+</html>

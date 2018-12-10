@@ -156,7 +156,7 @@ console.log(analyzeColor(userColor));
 
 
 var luckyNumber = Math.floor(Math.random() * 6);
-var x
+var x;
     function calculateTotal (luckyNumber, totalAmount) {
         totalAmount = prompt("What is your total bill?");
         console.log(luckyNumber);
