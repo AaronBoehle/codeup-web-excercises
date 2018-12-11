@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aaron Boehle - Konami</title>
+</head>
+<body>
+<audio class="audio" id="konami-jingle" preload="auto" controls style="display: none">
+    <source src="sound/Konami_Sound.mp3" type="audio/mp3">
+</audio>
+<h1 id="konami-secret" class="konami-code">Konami Code</h1>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+        var konamiKeys = [38,38,40,40,37,39,37,39,66,65,13];
+        var userKeys = [];
+        var keyCount = 0;
+
+    $(document).on('keydown', function (event) {
+        if (event.which === konamiKeys[keyCount]) {
+            userKeys.push(event.which);
+            keyCount++;
+            if (keyCount === 11) {
+                $('#konami-jingle').trigger('play');
+                userKeys = [];
+                keyCount = 0;
+                alert("You gained 30 lives!");
+            }
+        } else {
+            userKeys = [];
+            keyCount = 0;
+        }
+    });
+
+
+    $(document).keyup(function(event){
+        console.log(event.which);
+    });
+</script>
+
+<!-- Allow the user to enter the Konami Code: "↑ ↑ ↓ ↓ ← → ← → b a enter" (the return key)
+Find the matching sequence using the code above for each key in the Konami Code.
+Don't worry about capital a or b just check for lowercase.
+After the correct Konami Code sequence is inputted then the enter key have the script alert the user: "You have added 30 lives! Other ideas:
+Change the background screen.
+Play a sound.
+Be creative!
+Happy Playing.
+-->
+
+
+</body>
+</html>
