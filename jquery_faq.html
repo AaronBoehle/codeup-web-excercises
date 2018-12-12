@@ -2,9 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>JQuery FAQ</title>
+    <style>
+        .highlighted {
+            background-color: cadetblue;
+        }
+        .invisible {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
+    <dl id="national-park-faq" class="description-list">
+        <dt class="question">
+            Who is the director of the National Park Service?
+        </dt>
+        <dd class="answer invisible">
+            <p>Dan Smith is the deputy director exercising the authority of director for the National Park Service.</p>
+        </dd>
+        <dt class="question">
+            What government agency oversees the National Park Service?
+        </dt>
+        <dd class="answer invisible">
+            <p>The National Park Service is a bureau of the Department of the Interior. Directly overseeing its operation is the department's Assistant Secretary for Fish, Wildlife and Parks.</p>
+        </dd>
+        <dt class="question">
+            How many employees are in the National Park Service?
+        </dt>
+        <dd class="answer invisible">
+            <ul>
+                <li>Permanent, temporary, and seasonal employees: More than 20,000</li>
+                <li>Volunteers: More than 315,000 in 2017</li>
+            </ul>
+        </dd>
+        <dt class="question">
+            How old is the National Park System?
+        </dt>
+        <dd class="answer invisible">
+            <p>The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916. Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as the nation's first national park.</p>
+        </dd>
+        <dt class="question">
+            What is the origin of the National Park Service arrowhead?
+        </dt>
+        <dd class="answer invisible">
+            <p>The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on July 20, 1951. The components of the arrowhead may have been inspired by key attributes of the National Park System, with the sequoia tree and bison representing vegetation and wildlife, the mountains and water representing scenic and recreational values, and the arrowhead itself representing historical and archeological values.</dd>
+        <dt class="question">
+            How many areas are in the National Park System?
+        </dt>
+        <dd class="answer invisible">
+            <p>The system includes 418 areas covering more than 85 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands. These areas include national parks, monuments, battlefields, military parks, historical parks, historic sites, lakeshores, seashores, recreation areas, scenic rivers and trails, and the White House.        </dd></body>
+        <dt class="question">
+            What is the largest national park site? Smallest?
+        </dt>
+        <dd class="answer invisible">
+            <ul>
+                <li>Largest: Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres</li>
+                <li>Smallest: Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres</li>
+        </dd>
+        <dt class="question">
+            How many people visit the national parks?
+        </dt>
+        <dd class="answer invisible">
+            <p>Total recreation visitors to the national parks in 2017: 330,882,751</p>
+        </dd>
+        <dt class="question">
+            What is the most-visited national park?
+        </dt>
+        <dd class="answer invisible">
+            <p>Great Smoky Mountains National Park. Recreational Visits: 11,388,893</p>
+        </dd>
+        <dt class="question">
+            What is the National Park Service budget?
+        </dt>
+        <dd class="answer invisible">
+            <p>FY 2017 Enacted: $2.932 billion</p>
+        </dd>
+    </dl>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+        <!--
+        Open the file named jquery_faq.html for editing. Commit all changes to GitHub.
+
+Under the FAQ, add 3 unordered lists like above. Each list should contain a national park name in an h3 element, and a ul of 4 facts about the park.
+
+Create a button that, when clicked, makes the last li in each ul have a yellow background.
+
+When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this.
+
+When any list item is clicked, first li of the parent ul should have a font color of blue.
+        -->
+
+    </ul>
+    <a href="#" id="show-answer">Click here to show answers to frequently asked questions (FAQ).</a>
+
+    <script src="js/jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#show-answer').click(function (event) {
+                event.preventDefault();
+                $('.answer').toggleClass('invisible');
+            });
+            $('.question').on('click', function () {
+                $(this).toggleClass('highlighted');
+            });
+        });
+    </script>
+
 </body>
+
 </html>

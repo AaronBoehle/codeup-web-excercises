@@ -21,6 +21,7 @@
     $(document).on('keydown', function (event) {
         if (event.which === konamiKeys[keyCount]) {
             userKeys.push(event.which);
+            console.log(userKeys);
             keyCount++;
             if (keyCount === 11) {
                 $('#konami-jingle').trigger('play');
