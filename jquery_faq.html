@@ -7,12 +7,36 @@
         .highlighted {
             background-color: cadetblue;
         }
+        .highlight-yellow {
+            background-color: yellow;
+        }
         .invisible {
+            display: none;
+        }
+        .bold-font {
+            font-weight: bold;
+        }
+        .blue-font {
+            color: blue;
+        }
+        .frame-style {
+            border-style: solid;
+            border-width: 5px;
+            border-color: saddlebrown;
+            border-radius: 1px;
+            padding: 1em;
+        }
+        .national-park-list {
             display: none;
         }
     </style>
 </head>
 <body>
+    <div id="newsletter">
+        <h1>Would you like to sign up for our newsletter?</h1>
+        <span id="click-x">( X )</span>
+    </div>
+    <h2 id="register-alert" class="invisible">Please register with us!</h2>
 
     <dl id="national-park-faq" class="description-list">
         <dt class="question">
@@ -79,26 +103,50 @@
             <p>FY 2017 Enacted: $2.932 billion</p>
         </dd>
     </dl>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-
-        <!--
-        Open the file named jquery_faq.html for editing. Commit all changes to GitHub.
-
-Under the FAQ, add 3 unordered lists like above. Each list should contain a national park name in an h3 element, and a ul of 4 facts about the park.
-
-Create a button that, when clicked, makes the last li in each ul have a yellow background.
-
-When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this.
-
-When any list item is clicked, first li of the parent ul should have a font color of blue.
-        -->
-
-    </ul>
     <a href="#" id="show-answer">Click here to show answers to frequently asked questions (FAQ).</a>
+<div id="park-list-container">
+    <h3 class="park-list-header">Great Smoky Mountains</h3>
+    <ul class="national-park-list">
+        <li class="park-list-item">Great Smoky Mountains National Park straddles the border between North Carolina and Tennessee.</li>
+        <li class="park-list-item">The sprawling landscape encompasses lush forests and an abundance of wildflowers that bloom year-round. </li>
+        <li class="park-list-item">Streams, rivers and waterfalls appear along hiking routes that include a segment of the Appalachian Trail. </li>
+        <li class="park-list-item">An observation tower tops Clingmans Dome, the highest peak, offering scenic views of the mist-covered mountains.</li>
+    </ul>
+    <h3 class="park-list-header">Grand Canyon</h3>
+    <ul class="national-park-list">
+    <li class="park-list-item">Grand Canyon National Park, in Arizona, is home to much of the immense Grand Canyon, with its layered bands of red rock revealing millions of years of geological history.</li>
+    <li class="park-list-item">Viewpoints include Mather Point, Yavapai Observation Station and architect Mary Colter’s Lookout Studio and her Desert View Watchtower.</li>
+    <li class="park-list-item">Lipan Point, with wide views of the canyon and Colorado River, is a popular, especially at sunrise and sunset.</li>
+    <li class="park-list-item">Grand Canyon National Park covers an area of 4,926 square kilometers (1,902 square miles) or 492,608 hectares (1,217,262 acres).</li>
+</ul>
+    <h3 class="park-list-header">Yosemite</h3>
+    <ul class="national-park-list">
+    <li class="park-list-item">Yosemite National Park is in California’s Sierra Nevada mountains.</li>
+    <li class="park-list-item">It’s famed for its giant, ancient sequoia trees, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.</li>
+    <li class="park-list-item">In Yosemite Village are shops, restaurants, lodging, the Yosemite Museum and the Ansel Adams Gallery, with prints of the photographer’s renowned black-and-white landscapes of the area.</li>
+    <li class="park-list-item">In 1973 the photographer Galen Rowell took the first-known photograph of the natural Yosemite Firefall, which greatly increased its fame among landscape photographers and Yosemite aficionados.</li>
+</ul>
+    <button id="mellow-yellow" class="button" type="button">They call me "Mellow Yellow"</button>
+</div>
+
+<div id="picture-container" class="row">
+    <div id="frame-left" class="frame-style column">TEST</div>
+    <div id="frame-center" class="frame-style column">TEST</div>
+    <div id="frame-right" class="frame-style column">TEST</div>
+
+</div>
+<!--
+Create 3 divs that each look like a picture Frame; each one should have a unique background image and a button underneath that swaps the image from the frame. Use Traversing functions of jQuery to accomplish this.
+
+The rules are the following:
+
+The left frame swaps to the right and takes the image from the frame in the center.
+The center frame swaps randomly to either the left or right.
+The right frame swaps to the left and takes the image from the frame in the center.
+-->
+
+
+
 
     <script src="js/jquery-2.2.4.js"></script>
     <script>
@@ -110,6 +158,23 @@ When any list item is clicked, first li of the parent ul should have a font colo
             $('.question').on('click', function () {
                 $(this).toggleClass('highlighted');
             });
+            $('.park-list-header').on('click', function () {
+                $(this).next('ul').slideToggle(700);
+                $(this).next('ul').children('li').toggleClass('bold-font');
+
+            });
+            $('li').on('click', function () {
+                $(this).parent('.national-park-list').children('.park-list-item').first().toggleClass('blue-font');
+            });
+            $('#mellow-yellow').on('click', function () {
+                $('.national-park-list').each(function () {
+                    $(this).children('li').last().toggleClass('highlight-yellow');
+                });
+                });
+            $('#click-x').on('click', function () {
+                $(this).parent('div').toggleClass('invisible');
+            })
+            $('#register-alert').delay(8000).show(700);
         });
     </script>
 
