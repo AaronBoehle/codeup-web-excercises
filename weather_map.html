@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aaron Boehle - Weather Map</title>
+</head>
+<body>
+<style>
+    .text-center {
+        text-align: center;
+    }
+</style>
+<h1>Weather Application</h1>
+<input id="userLat" type="number">
+<input id="userLon" type="number">
+
+<div class="container">
+    <h2 class="city-name">San Antonio</h2>
+    <div id="forecast" class = "wrapper text-center">
+    </div>
+    <div id="google-maps">
+
+    </div>
+</div>
+
+<script src="js/jquery-2.2.4.js"></script>
+
+<script>
+    $.ajax({
+        url: "http://api.openweathermap.org/data/2.5/forecast",
+        type: "GET",
+        data: {
+            APPID: "3a3b0d45010180bc9d69877ba86393e1",
+            lat: 29.4246,
+            lon: -98.4952,
+            units: "imperial"
+        }
+    }).done(function (data) {
+        console.log(data);
+            var tempMax = data.list[0].main.temp_max;
+            var tempMin = data.list[0].main.temp_min;
+            var weatherIcon = data.list[0].weather[0].icon;
+            var weatherType = data.list[0].weather[0].main;
+            var weatherDetail = data.list[0].weather[0].description;
+            var humidity = data.list[0].main.humidity;
+            var windSpeed = data.list[0].wind.speed;
+            var pressure = data.list[0].main.pressure;
+            var forecast = "<div class='forecast-details'>";
+            forecast += "<h3 class='temperature' >" + tempMax + ' / ' + tempMin + "</h3>";
+            forecast += "<img src='http://openweathermap.org/img/w/"+weatherIcon+".png'>";
+            forecast += "<p class='weather-condition'>" + weatherType + ": " + weatherDetail + "</p>";
+            forecast += "<p class='humidity'>" + humidity + "</p>";
+            forecast += "<p class='wind'>" + windSpeed + "</p>";
+            forecast += "<p class='pressure'>" + pressure + "</p>";
+            forecast += "</div>";
+            $('#forecast').append(forecast);
+        });
+
+
+</script>
+<script>
+
+
+</script>
+</body>
+</html>
