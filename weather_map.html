@@ -6,27 +6,75 @@
 </head>
 <body>
 <style>
-    .text-center {
+    body {
+        background-color: #B8D3FE;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    }
+    h1 {
+        padding: .5em;
+        margin: 1em;
         text-align: center;
     }
+    #map-canvas {
+        width: 770px;
+        height: 481px;
+        margin-top: 3em;
+        margin-bottom: 3em;
+        margin-left: auto;
+        margin-right: auto;
+
+        padding: 1em;
+    }
+    .forecast-format {
+        text-align: center;
+        display: inline-block;
+        margin: auto;
+        padding-top: 0em;
+        padding-bottom: 0em;
+        padding-left: 5em;
+        padding-right: 5em;
+    }
+    .forecast-style {
+        background-color: #F2F2F2;
+        border: solid 1px gray;
+        border-collapse: collapse;
+        border-radius: 1em;
+    }
+
 </style>
 <h1>Weather Application</h1>
-<input id="userLat" type="number">
-<input id="userLon" type="number">
 
-<div class="container">
-    <h2 class="city-name">San Antonio</h2>
-    <div id="forecast" class = "wrapper text-center">
-    </div>
-    <div id="google-maps">
-
-    </div>
+<div class="container" style="margin: auto; display: grid;">
+   <!--
+    <nav id="nav-search" style="display: inline; margin-left: .5em;">
+   -->
+        <!--
+        <h2 id="city-name"></h2>
+        -->
+        <!--
+        <p>Enter a set of coordinates and view it via <a href="https://www.google.com/maps/" id="google-maps-link">Google Maps</a>!</p>
+        -->
+        <!--
+        <p>Latitude: <input id="userLat" type="number"></p>
+        -->
+        <!--
+        <p>Longitude: <input id="userLon" type="number"></p>
+        -->
+        <!--
+        <button id="userSearch">Search</button>
+        -->
+    <!--
+    </nav>
+    -->
+    <div id="weather-forecast" class = "container forecast-format"></div>
+    <div id="map-canvas" class="forecast-style"></div>
 </div>
 
 <script src="js/jquery-2.2.4.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkvGYIbyWtGTc6LkTph0UVJVUj7Uo6tAA"></script>
 
 <script>
-    $.ajax({
+      $.ajax({
         url: "http://api.openweathermap.org/data/2.5/forecast",
         type: "GET",
         data: {
@@ -35,32 +83,91 @@
             lon: -98.4952,
             units: "imperial"
         }
+
     }).done(function (data) {
         console.log(data);
-            var tempMax = data.list[0].main.temp_max;
-            var tempMin = data.list[0].main.temp_min;
-            var weatherIcon = data.list[0].weather[0].icon;
-            var weatherType = data.list[0].weather[0].main;
-            var weatherDetail = data.list[0].weather[0].description;
-            var humidity = data.list[0].main.humidity;
-            var windSpeed = data.list[0].wind.speed;
-            var pressure = data.list[0].main.pressure;
-            var forecast = "<div class='forecast-details'>";
-            forecast += "<h3 class='temperature' >" + tempMax + ' / ' + tempMin + "</h3>";
-            forecast += "<img src='http://openweathermap.org/img/w/"+weatherIcon+".png'>";
-            forecast += "<p class='weather-condition'>" + weatherType + ": " + weatherDetail + "</p>";
-            forecast += "<p class='humidity'>" + humidity + "</p>";
-            forecast += "<p class='wind'>" + windSpeed + "</p>";
-            forecast += "<p class='pressure'>" + pressure + "</p>";
-            forecast += "</div>";
-            $('#forecast').append(forecast);
-        });
+          $('#city-name').html(data.city.name);
+          var index=[0, 8, 16];
+          index.forEach(function (element, index) {
+              var tempMax = data.list[index].main.temp_max;
+              var tempMin = data.list[index].main.temp_min;
+              var weatherIcon = data.list[index].weather[0].icon;
+              var weatherType = data.list[index].weather[0].main;
+              var weatherDetail = data.list[index].weather[0].description;
+              var humidity = data.list[index].main.humidity;
+              var windSpeed = data.list[index].wind.speed;
+              var pressure = data.list[index].main.pressure;
+              var forecast = "<div class='forecast-details forecast-format forecast-style' style='margin: .33em;'>";
+              forecast += "<h3 class='temperature' >" + tempMax + ' / ' + tempMin + "</h3>";
+              forecast += "<img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'>";
+              forecast += "<p class='weather-condition'>" + "<b>" + weatherType + "</b>: " + weatherDetail + "</p>";
+              forecast += "<p class='humidity'>" + "<b>Humidity: </b>" + humidity + "</p>";
+              forecast += "<p class='wind'>" + "<b>Wind: </b>" + windSpeed + "</p>";
+              forecast += "<p class='pressure'>" + "<b>Pressure: </b>" + pressure + "</p>";
+              forecast += "</div>";
+              $('#weather-forecast').append(forecast);
+          });
+          });
 
 
-</script>
-<script>
+      // GOOGLE MAPS //
+
+      (function() {
+          "use strict";
+
+          var mapOptions = {
+              zoom: 11,
+              center: {
+                  lat: 29.426780, lng: -98.489575
+              }
+          };
+          var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+          var geocoder = new google.maps.Geocoder();
+          var address = "600 Navarro St #350, San Antonio, TX 78205";
+          geocoder.geocode({"address": address}, function (results, status) {
+              if (status == google.maps.GeocoderStatus.OK) {
+                  map.setCenter(results[0].geometry.location);
+              } else {
+                  alert("Geocoding was not successful - STATUS: " + status);
+              }
+          });
 
 
+
+
+          var codeup = { lat: 29.426780, lng: -98.489575 };
+          var markers = [];
+          map.addListener('click', function(event) {
+              addMarker(event.latLng);
+          });
+          var hotDogMarker = new google.maps.Marker({
+              position: codeup,
+              map: map,
+              animation: google.maps.Animation.DROP,
+              icon: {
+                  url: "images/iconfinder_Food_C207_2427857.png",
+                  scaledSize: new google.maps.Size(43, 43),
+                  //origin: new google.maps.Point(0,0),
+                  //anchor: new google.maps.Point(5, 0)
+              }
+          });
+
+          var infowindow = new google.maps.InfoWindow({
+              content:    "<h2><a href='https://www.fattboyburgers.com'>Fattboy Burgers and Dogs</a></h2><img src='images/burger.jpeg' style='width: 300px' height='auto' ><br><h3>Bustling spot for classic American grub.</h3><p>This local gem is a must-try for huge portions of juicy goodness at a reasonable price! The topping options are both classic and exotic, and there is no limitation on the amount of toppings you may add to your entree.</p>A steal-of-a-deal meal."
+          });
+
+// Open the window using our map and marker
+          marker.addListener('click', function() {
+              //map.setZoom(19);
+              map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+              map.setCenter(hotDogMarker.getPosition());
+              infowindow.open(map, hotDogMarker);
+          });
+
+          //
+
+
+      })();
 </script>
 </body>
 </html>
